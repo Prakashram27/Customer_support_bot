@@ -1,0 +1,190 @@
+version: "3.1"
+
+stories:
+# - story: Interaction story one
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: faq
+#   - action: utter_faq
+#   - intent: create_new_ticket
+#   - action: utter_create_new_ticket
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: Interaction story two
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: faq
+#   - action: utter_faq
+#   - intent: create_new_ticket
+#   - action: utter_create_new_ticket
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: single story for ticket creation
+#   steps:
+#   - intent: create_new_ticket
+#   - action: utter_create_new_ticket
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: single story for ticket creation deny
+#   steps:
+#   - intent: create_new_ticket
+#   - action: utter_create_new_ticket
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+
+# - story: about instruction ticket_status
+#   steps:
+#   - intent: instruction_check_ticket_status
+#   - action: utter_instruction_check_ticket_status
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+  
+
+# - story: type of ticket status
+#   steps:
+#   - intent: type_ticket_status
+#   - action: utter_type_ticket_status
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: pending status meaning
+#   steps:
+#   - intent: pending_status_meaning
+#   - action: utter_pending_status_meaning
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: ticket categories listing
+#   steps:
+#   - intent: supported_ticket_categories
+#   - action: utter_supported_ticket_categories
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: avarage response time
+#   steps:
+#   - intent: response_time_expectation
+#   - action: utter_response_time_expectation
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: ticket updation
+#   steps:
+#   - intent: update_existing_ticket
+#   - action: utter_update_existing_ticket
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+# - story: escalation
+#   steps:
+#   - intent: escalate_priority
+#   - action: utter_escalate_priority
+#   - action: utter_user_query
+#   - intent: deny
+#   - action: utter_feedback
+#   - intent: star
+#   - action: utter_thanks
+
+
+
+## NEGATIVE STORIES
+
+# - story: about instruction ticket_status one
+#   steps:
+#   - intent: instruction_check_ticket_status
+#   - action: utter_instruction_check_ticket_status
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+  
+
+# - story: type of ticket status one
+#   steps:
+#   - intent: type_ticket_status
+#   - action: utter_type_ticket_status
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: pending status meaning one
+#   steps:
+#   - intent: pending_status_meaning
+#   - action: utter_pending_status_meaning
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: ticket categories listing one
+#   steps:
+#   - intent: supported_ticket_categories
+#   - action: utter_supported_ticket_categories
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: avarage response time one
+#   steps:
+#   - intent: response_time_expectation
+#   - action: utter_response_time_expectation
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: ticket updation one
+#   steps:
+#   - intent: update_existing_ticket
+#   - action: utter_update_existing_ticket
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: escalation one
+#   steps:
+#   - intent: escalate_priority
+#   - action: utter_escalate_priority
+#   - action: utter_user_query
+#   - intent: affirm
+#   - action: utter_more_help
+
+# - story: finding ticket status
+#   steps:
+#   - intent: find_ticket_status
+#   - action: utter_ask_ticket_number
+
+
+
+
+
+
