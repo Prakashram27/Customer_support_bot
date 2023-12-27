@@ -59,6 +59,7 @@ nlu:
 
 - intent: faq/instruction_to_create_ticket
   examples: |
+    - tell me how to create ticket.
     - How can I open a support ticket?
     - Tell me the process of creating a new ticket.
     - What steps should I follow to create a ticket?
@@ -111,7 +112,7 @@ nlu:
 
 
 - intent: faq/response_time_expectation
-  examples: |
+  examples: | 
     - How long does it take to receive a response to my ticket?
     - Expected response time for a ticket
     - What is the expected response time for a support ticket?
@@ -156,21 +157,27 @@ nlu:
     - Can I raise the priority level of my ticket for faster resolution?
     - Provide information on how to request priority escalation for a support request.
 
-- intent: faq/instruction_ticket_status
+- intent: faq/instrction_to_ticket_status
   examples: |
     - How can I check the status of my ticket?
     - Provide instructions to check ticket status.
     - What steps do I follow to know my ticket status?
+    - how do i know my status of the ticket
+    - how to find my ticket status.
+    - give me instruction for tracking the ticket status
 
 
 ##CREATING TICKET action ##
 - intent: action_create_new_ticket
   examples: |
+    - create new ticket
+    - create ticket
     - Open a new ticket for a software bug.
     - I need to create a ticket for a hardware issue.
     - Create a support ticket for my account.
     - Open a ticket regarding a payment problem.
     - I want to report a security issue and create a ticket.
+
 
 - intent: find_ticket_status
   examples: |
@@ -186,10 +193,53 @@ nlu:
     - is my ticket is resolved?
      
 
+# - intent: inform
+#   examples: |
+#     - my email is test@example.com
+#     - my email is abraham.lincoln@example.com
+#     - name.name@example.com
+#     - it is admin@example.com
+#     - aileen.mottern@example.com
+#     - [low](priority)
+#     - [medium](priority)
+#     - [high](priority)
+#     - it should be a [low](priority) priority
+#     - it should be [medium](priority)
+#     - [escalated]{"entity": "priority", "value": "high"}
+#     - [escalate]{"entity": "priority", "value": "high"}
+#     - [super high](priority)
+#     - john
+#     - the priority is [high](priority)
+#     - test@gmail.com
+#     - xyz@example.com
+#     - my email is ella@rasa.com
+#     - abraham.lincoln@example.com
+#     - steve
+#     - sara@rasa.com
+#     - [urgent]{"entity": "priority", "value": "high"}
+#     - [critical]{"entity": "priority", "value": "high"}
 
+
+- intent: user_email
+  examples: |
+    - my email is [user@email.com](mailto:user@email.com)
+    - email address is [user@email.com](mailto:user@email.com)
+    - [user@email.com](mailto:user@email.com)
+
+- intent: user_fullname
+  examples: |
+    - my full name is John Doe
+    - I am John Doe
+    - call me John Doe
+
+- intent: user_priority
+  examples: |
+    - set priority to high
+    - high priority
+    - priority: high
 
 #OUT OF SCOPE
-- intent: out_of_scope/other
+- intent: out_of_scope
   examples: |
     - I am asking you an out of scope question
     - 4 + 2 = ?

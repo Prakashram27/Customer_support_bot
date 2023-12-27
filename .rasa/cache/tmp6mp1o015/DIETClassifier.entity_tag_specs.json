@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-company",
+      "2": "I-company",
+      "3": "L-company",
+      "4": "U-company",
+      "5": "B-language",
+      "6": "I-language",
+      "7": "L-language",
+      "8": "U-language",
+      "9": "B-name",
+      "10": "I-name",
+      "11": "L-name",
+      "12": "U-name",
+      "13": "B-priority",
+      "14": "I-priority",
+      "15": "L-priority",
+      "16": "U-priority",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-company": 1,
+      "I-company": 2,
+      "L-company": 3,
+      "U-company": 4,
+      "B-language": 5,
+      "I-language": 6,
+      "L-language": 7,
+      "U-language": 8,
+      "B-name": 9,
+      "I-name": 10,
+      "L-name": 11,
+      "U-name": 12,
+      "B-priority": 13,
+      "I-priority": 14,
+      "L-priority": 15,
+      "U-priority": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

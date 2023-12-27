@@ -1,0 +1,42 @@
+{
+  "utter_faq/instruction_to_create_ticket": [
+    {
+      "text": "To create a ticket, follow these steps:\n\n1. Type 'Create a new ticket' or a similar message.\n2. Specify the type of ticket, such as 'bug,' 'feature request,' or 'general inquiry.'\n3. Provide any relevant details about the issue or request.\n4. Confirm the information and submit the request."
+    }
+  ],
+  "utter_faq/type_ticket_status": [
+    {
+      "text": "Tickets can have various statuses depending on their lifecycle. Here are common ticket statuses:\n\n1. **Open:** The ticket has been created and is awaiting processing.\n2. **In Progress:** The support team is actively working on the ticket.\n3. **Resolved:** The issue has been addressed, and the ticket is considered resolved.\n4. **Closed:** The support case is closed, and no further action is required.\n\nYou can check the current status of your ticket by using the 'Check ticket status' feature."
+    }
+  ],
+  "utter_faq/supported_ticket_categories": [
+    {
+      "text": "We support various ticket categories to address a wide range of issues. Some common ticket categories include:\n\n1. **Technical Issues:** Problems related to software, hardware, or technical functionalities.\n2. **Feature Requests:** Suggestions for new features or improvements.\n3. **Account Assistance:** Issues related to account access, billing, or personal information.\n4. **General Inquiries:** Non-specific questions or requests for information.\n\nIf your issue doesn't fit into any of these categories, feel free to describe it in detail, and we'll assist you accordingly."
+    }
+  ],
+  "utter_faq/pending_status_meaning": [
+    {
+      "text": "The 'Pending' status for a ticket means that it is awaiting further action or information. It indicates that the support team is currently unable to progress with the ticket and is waiting for additional details, customer response, or resolution. If your ticket is in 'Pending' status, you may receive updates or requests from the support team to move it forward."
+    }
+  ],
+  "utter_faq/response_time_expectation": [
+    {
+      "text": "Our goal is to respond to support tickets as quickly as possible. However, the actual response time may vary based on the nature and complexity of the issue, as well as current support team workload. In general, you can expect a response within [time frame], but urgent or critical issues may receive quicker attention. We appreciate your patience and understanding as we work to address your concerns promptly."
+    }
+  ],
+  "utter_faq/instrction_to_ticket_status": [
+    {
+      "text": "You can check the status of your ticket by following these steps:\n\n1. Type 'Check ticket status' or a similar message.\n2. Provide the ticket number or any required information.\n3. The system will then fetch and display the current status of your ticket."
+    }
+  ],
+  "utter_faq/instruction_escalate_priority": [
+    {
+      "text": "To escalate the priority of your ticket, please follow these steps:\n\n1. Log in to your account and navigate to the support ticket section.\n2. Locate the ticket you want to escalate and click on it to view details.\n3. Look for an option or button related to 'Priority' or 'Urgency.'\n4. Select a higher priority level or indicate the urgency of your request.\n5. Save or submit the changes to apply the escalated priority.\n\nKeep in mind that priority escalation may be subject to approval or review by our support team. If you have specific concerns, you can also reach out to our support team directly for assistance."
+    }
+  ],
+  "utter_faq/instruction_update_existing_ticket": [
+    {
+      "text": "To update an existing support ticket, please follow these steps:\n\n1. Log in to your account and go to the support or ticketing section.\n2. Locate the ticket you want to update and click on it to view details.\n3. Look for an option or button related to 'Edit' or 'Update.'\n4. Modify the information or add additional details as needed.\n5. Save or submit the changes to apply the updates.\n\nIf you encounter any issues or need further assistance, you can also reach out to our support team for help."
+    }
+  ]
+}

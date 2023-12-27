@@ -1,6 +1,21 @@
 version: "3.1"
 
 stories:
+
+- story: Interaction story one
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq
+  - action: utter_faq
+
+- story: creating ticket
+  steps:
+  - intent: action_create_new_ticket
+  - action: utter_ask_email
+  - intent: inform
+  - action: utter_done
+
 # - story: Interaction story one
 #   steps:
 #   - intent: greet

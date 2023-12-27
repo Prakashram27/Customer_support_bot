@@ -13,21 +13,174 @@ intents:
   - faq/pending_status_meaning
   - faq/instruction_update_existing_ticket
   - faq/instruction_escalate_priority
-  - faq/instruction_ticket_status
+  - faq/instruction_to_ticket_status
   - action_create_new_ticket
   - find_ticket_status
+  - inform
+  - out_of_scope
+
+
+entities:
+- email
+- username
+- priority
+
+slots:
+  confirm:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: from_intent
+      intent: affirm
+      value: true
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: confirm
+    - type: from_intent
+      intent: deny
+      value: false
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: confirm
+
+#previous email 
+  previous_email:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  caller_id:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+# email 
+  email:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: email
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: email
+      - active_loop: open_ticket_form
+        requested_slot: email
+    - type: from_intent
+      intent: affirm
+      value: true
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: email
+      - active_loop: open_ticket_form
+        requested_slot: email
+    - type: from_intent
+      intent: deny
+      value: false
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: email
+      - active_loop: open_ticket_form
+        requested_slot: email
+    - type: from_entity
+      entity: email
+  
+  
+  username:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: username
+      conditions:
+      - active_loop: open_ticket_form
+    - type: from_entity
+      entity: username
+
+  
+  ticket_title:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_trigger_intent
+      intent: password_reset
+      value: Problem resetting password
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: incident_title
+    - type: from_trigger_intent
+      intent: problem_email
+      value: Problem with email
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: ticket_title
+    - type: from_text
+      not_intent:
+      - incident_status
+      - bot_challenge
+      - help
+      - affirm
+      - deny
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: ticket_title
+
+
+  priority:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: priority
+      conditions:
+      - active_loop: open_ticket_form
+    - type: from_entity
+      entity: priority
+
+
+  problem_description:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      not_intent:
+      - incident_status
+      - bot_challenge
+      - help
+      - affirm
+      - deny
+      conditions:
+      - active_loop: open_ticket_form
+        requested_slot: problem_description
+
+
+
+  
+
+  # requested_slot:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #   - type: custom
+
+
+
+
+
 
 ## should change in payload
 responses:
+  #GREETING
   utter_greet:
   - text: "Hi How can i assist you today?"
-
   utter_goodbye:
   - text: "Good Bye"
-
   utter_iamabot:
   - text: "Hello! I am your friendly customer support bot powered by Rasa. My main goal is to assist you with any questions or issues you may have. Whether you need help creating a new support ticket, updating an existing one, or finding information from our FAQs, I'm here to make your experience as smooth as possible. Feel free to ask me anything, and I'll do my best to help you!"
-
+  
+  
+  #FAQs
   utter_faq/instruction_to_create_ticket:
   - text: "To create a ticket, follow these steps:\n\n1. Type 'Create a new ticket' or a similar message.\n2. Specify the type of ticket, such as 'bug,' 'feature request,' or 'general inquiry.'\n3. Provide any relevant details about the issue or request.\n4. Confirm the information and submit the request."
   utter_faq/type_ticket_status:
@@ -38,13 +191,54 @@ responses:
   - text: "The 'Pending' status for a ticket means that it is awaiting further action or information. It indicates that the support team is currently unable to progress with the ticket and is waiting for additional details, customer response, or resolution. If your ticket is in 'Pending' status, you may receive updates or requests from the support team to move it forward."
   utter_faq/response_time_expectation:
   - text: "Our goal is to respond to support tickets as quickly as possible. However, the actual response time may vary based on the nature and complexity of the issue, as well as current support team workload. In general, you can expect a response within [time frame], but urgent or critical issues may receive quicker attention. We appreciate your patience and understanding as we work to address your concerns promptly."
-  utter_faq/instrction_ticket_status:
+  utter_faq/instrction_to_ticket_status:
   - text: "You can check the status of your ticket by following these steps:\n\n1. Type 'Check ticket status' or a similar message.\n2. Provide the ticket number or any required information.\n3. The system will then fetch and display the current status of your ticket."
   utter_faq/instruction_escalate_priority:
   - text: "To escalate the priority of your ticket, please follow these steps:\n\n1. Log in to your account and navigate to the support ticket section.\n2. Locate the ticket you want to escalate and click on it to view details.\n3. Look for an option or button related to 'Priority' or 'Urgency.'\n4. Select a higher priority level or indicate the urgency of your request.\n5. Save or submit the changes to apply the escalated priority.\n\nKeep in mind that priority escalation may be subject to approval or review by our support team. If you have specific concerns, you can also reach out to our support team directly for assistance."
   utter_faq/instruction_update_existing_ticket:
     - text: "To update an existing support ticket, please follow these steps:\n\n1. Log in to your account and go to the support or ticketing section.\n2. Locate the ticket you want to update and click on it to view details.\n3. Look for an option or button related to 'Edit' or 'Update.'\n4. Modify the information or add additional details as needed.\n5. Save or submit the changes to apply the updates.\n\nIf you encounter any issues or need further assistance, you can also reach out to our support team for help."
+  
+  #out of scope
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
 
+  #Fallback response
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+
+  utter_ask_email:
+  - text: Please provide your email id for creating ticket?
+
+  utter_ask_use_previous_email:
+  - text: Would you like to use the last email address you used, {previous_email}?
+
+
+
+
+
+
+
+forms:
+  open_ticket_form:
+    ignored_intents: []
+    required_slots:
+    - email
+    - username
+    - priority
+    - problem_description
+    - ticket_title
+    - confirm
+  ticket_status_form:
+    ignored_intents: []
+    required_slots:
+    - email
+
+
+
+# actions:
+#   - action_ask_email
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+
