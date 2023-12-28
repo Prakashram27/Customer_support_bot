@@ -60,4 +60,72 @@ class ActionAskEmail(Action):
             dispatcher.utter_message(template=f"utter_ask_email")
         return []
 
+class ActionOpenIncident(Action):
+    def name(self) -> Text:
+        return "action_open_incident"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        if tracker.get_slot("previous_email"):
+            dispatcher.utter_message(template=f"utter_ask_use_previous_email",)
+        else:
+            dispatcher.utter_message(template=f"utter_ask_email")
+        return []
+
+
+
+from rasa_sdk.forms import FormValidationAction
+
+class OrderForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_track_order_form"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        return ["orderno"]
+
+    def slot_mappings(self) -> Dict[Text, Any]:
+        return {"orderno": self.from_text(intent="track_order")}
+
+    def validate_orderno(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        if not value:
+        # Slot is empty, request the user to provide an order number
+            dispatcher.utter_message("Please provide an order number.")
+            return {"orderno": None}
+        # Add your validation logic here (e.g., check if the order number is valid)
+        if value.isnumeric() and len(value) == 5:
+            # Valid order number
+            return {"orderno": value}
+        else:
+            dispatcher.utter_message("Please provide a valid order number.")
+            # Reset the slot if validation fails
+            return {"orderno": None}
+        
+
+class ActionCheckOrder(Action):
+    def name(self) -> Text:
+        return "action_check_order"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        orderno = tracker.get_slot("orderno")
+        print(f"Your {orderno} is on the way")
+        dispatcher.utter_message("Your order {order} was bit late delivary. please wait...")
+        
+
+
 

@@ -9,12 +9,32 @@ stories:
   - intent: faq
   - action: utter_faq
 
-- story: creating ticket
+- story: answer out of scope
   steps:
-  - intent: action_create_new_ticket
-  - action: utter_ask_email
-  - intent: inform
-  - action: utter_done
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+# - story: creating ticket
+#   steps:
+#   - intent: create_new_ticket
+#   - action: utter_ask_email
+#   - intent: inform
+#   - action: utter_done
+
+- story: open incident form interrupted
+  steps:
+  - intent: create_new_ticket
+  - action: open_ticket_form
+  - active_loop: open_ticket_form
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: open_ticket_form
+  - active_loop: null
+  - action: action_open_incident
+
+
+
+
 
 # - story: Interaction story one
 #   steps:

@@ -168,7 +168,7 @@ nlu:
 
 
 ##CREATING TICKET action ##
-- intent: action_create_new_ticket
+- intent: create_new_ticket
   examples: |
     - create new ticket
     - create ticket
@@ -193,50 +193,84 @@ nlu:
     - is my ticket is resolved?
      
 
-# - intent: inform
+- intent: inform
+  examples: |
+    - my email is [test@example.com](email)
+    - my email is [abraham.lincoln@example.com](email)
+    - name.name@example.com
+    - it is admin@example.com
+    - aileen.mottern@example.com
+    - [low](priority)
+    - [medium](priority)
+    - [high](priority)
+    - it should be a [low](priority) priority
+    - it should be [medium](priority)
+    - [escalated]{"entity": "priority", "value": "high"}
+    - [escalate]{"entity": "priority", "value": "high"}
+    - [super high](priority)
+    - [john](username)
+    - i am [john doe](username)
+    - the priority is [high](priority)
+    - test@gmail.com
+    - xyz@example.com
+    - my email is ella@rasa.com
+    - abraham.lincoln@example.com
+    - steve 
+    - sara@rasa.com
+    - [urgent]{"entity": "priority", "value": "high"}
+    - [critical]{"entity": "priority", "value": "high"}
+    - my order number is [12445](orderno)
+    - [89574](orderno)
+    - this is my order number [34798](orderno)
+
+
+
+
+# - intent: user_email
 #   examples: |
-#     - my email is test@example.com
-#     - my email is abraham.lincoln@example.com
-#     - name.name@example.com
-#     - it is admin@example.com
-#     - aileen.mottern@example.com
-#     - [low](priority)
-#     - [medium](priority)
-#     - [high](priority)
-#     - it should be a [low](priority) priority
-#     - it should be [medium](priority)
-#     - [escalated]{"entity": "priority", "value": "high"}
-#     - [escalate]{"entity": "priority", "value": "high"}
-#     - [super high](priority)
-#     - john
-#     - the priority is [high](priority)
-#     - test@gmail.com
-#     - xyz@example.com
-#     - my email is ella@rasa.com
-#     - abraham.lincoln@example.com
-#     - steve
-#     - sara@rasa.com
-#     - [urgent]{"entity": "priority", "value": "high"}
-#     - [critical]{"entity": "priority", "value": "high"}
+#     - my email is [user@email.com](mailto:user@email.com)
+#     - email address is [user@email.com](mailto:user@email.com)
+#     - [user@email.com](mailto:user@email.com)
+
+# - intent: user_fullname
+#   examples: |
+#     - my full name is John Doe
+#     - I am John Doe
+#     - call me John Doe
+
+# - intent: user_priority
+#   examples: |
+#     - set priority to high
+#     - high priority
+#     - priority: high
 
 
-- intent: user_email
+
+- intent: track_order
   examples: |
-    - my email is [user@email.com](mailto:user@email.com)
-    - email address is [user@email.com](mailto:user@email.com)
-    - [user@email.com](mailto:user@email.com)
+    - What is the status of my order [order number]?
+    - where is my order
+    - Can I track my package?
+    - When can I expect my order to arrive?
+    - Where is my order currently located?
+    - I haven't received any updates on my order, can you check on it?
 
-- intent: user_fullname
+- intent: delivery_delay
   examples: |
-    - my full name is John Doe
-    - I am John Doe
-    - call me John Doe
+    - My order hasn't arrived yet; it was supposed to be here on [date].
+    - The tracking information hasn't been updated in a few days; is there a problem?
+    - I'm concerned my package might be lost; can you help me locate it?
+    - What can be done about my delayed delivery?
+    - Can you expedite the delivery of my order since it's urgent?
 
-- intent: user_priority
+- intent: change_delivery_address
   examples: |
-    - set priority to high
-    - high priority
-    - priority: high
+    - Can I change the delivery address on my order [order number]?
+    - I need to update my delivery address; how can I do that?
+    - I entered the wrong delivery address when placing my order; can you fix it?
+    - Will changing the delivery address affect the estimated arrival date?
+    - Do I need to pay any additional charges for changing the delivery address?
+
 
 #OUT OF SCOPE
 - intent: out_of_scope

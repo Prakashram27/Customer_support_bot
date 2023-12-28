@@ -14,7 +14,7 @@ intents:
   - faq/instruction_update_existing_ticket
   - faq/instruction_escalate_priority
   - faq/instruction_to_ticket_status
-  - action_create_new_ticket
+  - create_new_ticket
   - find_ticket_status
   - inform
   - out_of_scope
@@ -24,8 +24,17 @@ entities:
 - email
 - username
 - priority
+- orderno
 
 slots:
+  orderno:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: orderno
+
+
   confirm:
     type: bool
     influence_conversation: false
@@ -45,11 +54,6 @@ slots:
 
 #previous email 
   previous_email:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: custom
-  caller_id:
     type: text
     influence_conversation: false
     mappings:
@@ -99,32 +103,32 @@ slots:
       entity: username
 
   
-  ticket_title:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_trigger_intent
-      intent: password_reset
-      value: Problem resetting password
-      conditions:
-      - active_loop: open_ticket_form
-        requested_slot: incident_title
-    - type: from_trigger_intent
-      intent: problem_email
-      value: Problem with email
-      conditions:
-      - active_loop: open_ticket_form
-        requested_slot: ticket_title
-    - type: from_text
-      not_intent:
-      - incident_status
-      - bot_challenge
-      - help
-      - affirm
-      - deny
-      conditions:
-      - active_loop: open_ticket_form
-        requested_slot: ticket_title
+  # ticket_title:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #   - type: from_trigger_intent
+  #     intent: password_reset
+  #     value: Problem resetting password
+  #     conditions:
+  #     - active_loop: open_ticket_form
+  #       requested_slot: incident_title
+  #   - type: from_trigger_intent
+  #     intent: problem_email
+  #     value: Problem with email
+  #     conditions:
+  #     - active_loop: open_ticket_form
+  #       requested_slot: ticket_title
+  #   - type: from_text
+  #     not_intent:
+  #     - incident_status
+  #     - bot_challenge
+  #     - help
+  #     - affirm
+  #     - deny
+  #     conditions:
+  #     - active_loop: open_ticket_form
+  #       requested_slot: ticket_title
 
 
   priority:
@@ -145,9 +149,8 @@ slots:
     mappings:
     - type: from_text
       not_intent:
-      - incident_status
+      - find_ticket_status
       - bot_challenge
-      - help
       - affirm
       - deny
       conditions:
@@ -196,7 +199,7 @@ responses:
   utter_faq/instruction_escalate_priority:
   - text: "To escalate the priority of your ticket, please follow these steps:\n\n1. Log in to your account and navigate to the support ticket section.\n2. Locate the ticket you want to escalate and click on it to view details.\n3. Look for an option or button related to 'Priority' or 'Urgency.'\n4. Select a higher priority level or indicate the urgency of your request.\n5. Save or submit the changes to apply the escalated priority.\n\nKeep in mind that priority escalation may be subject to approval or review by our support team. If you have specific concerns, you can also reach out to our support team directly for assistance."
   utter_faq/instruction_update_existing_ticket:
-    - text: "To update an existing support ticket, please follow these steps:\n\n1. Log in to your account and go to the support or ticketing section.\n2. Locate the ticket you want to update and click on it to view details.\n3. Look for an option or button related to 'Edit' or 'Update.'\n4. Modify the information or add additional details as needed.\n5. Save or submit the changes to apply the updates.\n\nIf you encounter any issues or need further assistance, you can also reach out to our support team for help."
+  - text: "To update an existing support ticket, please follow these steps:\n\n1. Log in to your account and go to the support or ticketing section.\n2. Locate the ticket you want to update and click on it to view details.\n3. Look for an option or button related to 'Edit' or 'Update.'\n4. Modify the information or add additional details as needed.\n5. Save or submit the changes to apply the updates.\n\nIf you encounter any issues or need further assistance, you can also reach out to our support team for help."
   
   #out of scope
   utter_out_of_scope:
@@ -209,8 +212,33 @@ responses:
   utter_ask_email:
   - text: Please provide your email id for creating ticket?
 
-  utter_ask_use_previous_email:
+  utter_ask_previous_email:
   - text: Would you like to use the last email address you used, {previous_email}?
+
+  utter_ask_username:
+  - text: Provide your full name.
+
+  utter_ask_ticket_title:
+  - text: Please provide title for the ticket
+
+  utter_ask_problem_description:
+  - text: Please provide detail description about the problem.
+
+  utter_ask_confirm:
+  - text:  "Should I open an ticket with the following details? \n\n    email: {email} \n\n    problem description: {problem_description} \n\n     priority: {priority}"
+    buttons:
+    - title: Yes..
+      payload: /affirm
+    - title: No, cancel the incident
+      payload: /deny
+
+  utter_ask_priority:
+  - text: What is the priority for this ticket?
+
+  utter_ask_orderno:
+  - text: "Please provide your order no for checking the status of deliery"
+
+
 
 
 
@@ -226,17 +254,21 @@ forms:
     - username
     - priority
     - problem_description
-    - ticket_title
+    # - ticket_title
     - confirm
-  ticket_status_form:
+  track_order_form:
     ignored_intents: []
     required_slots:
-    - email
+    - orderno
 
+actions:
+  - action_check_order
+  - validate_track_order_form
 
+actions:
+  - action_open_incident
+  # - action_ask_email
 
-# actions:
-#   - action_ask_email
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
