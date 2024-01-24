@@ -1,0 +1,111 @@
+version: "3.1"
+
+stories:
+- story: Greeting User
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: FAQlist
+  - action: utter_FAQlist
+  
+# - story: Check Ticket Status
+#   steps:
+#   - intent: check_ticket_status
+#   - action: utter_check_ticket_status
+
+# - story: List Open Tickets
+#   steps:
+#   - intent: list_open_tickets
+#   - action: utter_list_open_tickets
+
+# - story: Track Ticket Progress
+#   steps:
+#   - intent: track_ticket_progress
+#   - action: utter_track_ticket_progress
+
+# - story: Explain Pending Status
+#   steps:
+#   - intent: pending_status_meaning
+#   - action: utter_pending_status_meaning
+
+# - story: Create New Ticket
+#   steps:
+#   - intent: create_new_ticket
+#   - action: utter_create_new_ticket
+
+# - story: find type of ticket statuses
+#   steps:
+#   - intent: ticket_statuses
+#   - action: utter_ticket_statuses
+
+# - story: Supported Ticket Categories
+#   steps:
+#   - intent: supported_ticket_categories
+#   - action: utter_supported_ticket_categories
+
+# - story: Response Time Expectation
+#   steps:
+#   - intent: response_time_expectation
+#   - action: utter_response_time_expectation
+
+# - story: Update Existing Ticket
+#   steps:
+#   - intent: update_existing_ticket
+#   - action: utter_update_existing_ticket
+
+# - story: Reset Password
+#   steps:
+#   - intent: reset_password
+#   - action: utter_reset_password
+
+# - story: Attachments Allowed
+#   steps:
+#   - intent: attachments_allowed
+#   - action: utter_attachments_allowed
+
+# - story: Escalate Priority
+#   steps:
+#   - intent: escalate_priority
+#   - action: utter_escalate_priority
+
+# - story: Close Ticket
+#   steps:
+#   - intent: close_ticket
+#   - action: utter_close_ticket
+
+# - story: Subscribe to Ticket Updates
+#   steps:
+#   - intent: subscribe_ticket_updates
+#   - action: utter_subscribe_ticket_updates
+
+# - story: Ticket Submission Limit
+#   steps:
+#   - intent: ticket_submission_limit
+#   - action: utter_ticket_submission_limit
+
+# - story: Include Info in Ticket
+#   steps:
+#   - intent: include_info_in_ticket
+#   - action: utter_include_info_in_ticket
+
+# - story: Provide Feedback
+#   steps:
+#   - intent: provide_feedback
+#   - action: utter_provide_feedback
+
+# - story: Reopen Closed Ticket
+#   steps:
+#   - intent: reopen_closed_ticket
+#   - action: utter_reopen_closed_ticket
+
+# - story: Transfer Ticket Department
+#   steps:
+#   - intent: transfer_ticket_department
+#   - action: utter_transfer_ticket_department
+
+# - story: View Ticket History
+#   steps:
+#   - intent: view_ticket_history
+#   - action: utter_view_ticket_history
+
+# ... Add more stories for other FAQs ...

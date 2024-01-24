@@ -1,0 +1,253 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: FAQlist
+  examples: |
+    - FAQs
+    - Freaquently asked questions
+
+##CREATING TICKET##
+- intent: create_new_ticket
+  examples: |
+    - How do I create a new ticket?
+    - Create a new support ticket
+    - What's the process for creating a new ticket?
+    - How can I initiate a new support ticket?
+    - Create a new ticket for me, please.
+    - Guide me on how to submit a new support request.
+    - Provide instructions for initiating a new ticket.
+    - How do I start the process of creating a support ticket?
+    - Explain the steps to create a new helpdesk ticket.
+    - Can you assist me in opening a new ticket?
+    - I need to create a new ticket. How can I do that?
+    - Tell me about the procedure for submitting a new support ticket.
+
+- intent: instruction_check_ticket_status
+  examples: |
+    - How can I check the status of my ticket?
+    - How do I find out the status of my support ticket?
+    - Is there a way to check the progress of my reported issue?
+    - How do I know if my ticket has been resolved?
+    - Where can I see the current status of my ticket?
+    - Is there a way to track the status of a specific ticket?
+    - How can I get details about the status of my helpdesk ticket?
+
+- intent: ticket_statuses
+  examples: |
+    - What are the possible ticket statuses?
+    - List of ticket statuses
+    - What are the different ticket statuses?
+    - Can you provide a list of possible ticket statuses?
+    - List all the available ticket statuses, please.
+    - What options do I have for ticket statuses?
+    - Tell me about the ticket status options.
+    - Provide information on ticket statuses.
+    - What are the various statuses a ticket can have?
+    - Can you explain the different states a ticket can be in?
+    - List down the ticket status categories.
+    - What are the status choices when checking a ticket?
+
+# - intent: list_open_tickets
+#   examples: |
+#     - Can I get a list of all my open tickets?
+#     - Show my open tickets
+#     - List open tickets for me
+
+# - intent: track_ticket_progress
+#   examples: |
+#     - How can I track the progress of my ticket resolution?
+#     - Track my ticket progress
+
+- intent: pending_status_meaning
+  examples: |
+    - What does the "Pending" status mean for a ticket?
+    - Explain "Pending" status
+    - Can you explain the significance of the "Pending" status for a ticket?
+    - What does it mean when a ticket is in the "Pending" status?
+    - Provide information on the meaning of the "Pending" status for a ticket.
+    - Explain the implications of a ticket being in the "Pending" state.
+    - What actions should I take when my ticket is marked as "Pending"?
+    - Tell me more about the "Pending" status in the context of ticket resolution.
+    - Clarify the meaning behind the "Pending" status for support tickets.
+    - What does it indicate when a ticket is set to "Pending"?
+    - Describe the conditions under which a ticket is labeled as "Pending."
+    - Can you provide details about the lifecycle of a ticket in the "Pending" state?
+
+
+- intent: supported_ticket_categories
+  examples: |
+    - What are the supported ticket categories?
+    - List of ticket categories
+    - Can you provide a list of supported ticket categories?
+    - What categories are available for support tickets?
+    - Tell me about the supported ticket categories.
+    - List down the ticket categories you support.
+    - What are the options for ticket categories?
+    - Provide information on available support ticket categories.
+    - Can you explain the different categories for support tickets?
+    - Tell me about the types of issues covered by your ticket categories.
+    - What kind of problems can I report using your ticketing system?
+    - Explain the variety of ticket categories I can choose from.
+
+- intent: response_time_expectation
+  examples: |
+    - How long does it take to receive a response to my ticket?
+    - Expected response time for a ticket
+    - What is the expected response time for a support ticket?
+    - How long should I wait for a response to my ticket?
+    - Can you provide information on the typical response time for tickets?
+    - What's the average time it takes to get a response to a ticket?
+    - Tell me about the anticipated response time for my support request.
+    - How soon can I expect a reply after submitting a ticket?
+    - Explain the response time expectation for different ticket priorities.
+    - Provide details on the turnaround time for ticket responses.
+    - Is there a standard time frame for addressing support tickets?
+    - What is the general response time policy for tickets in your system?
+
+- intent: update_existing_ticket
+  examples: |
+    - Can I update or add more details to an existing ticket?
+    - Modify existing ticket information
+    - How can I update details on an existing ticket?
+    - Is it possible to modify information in a submitted ticket?
+    - Can I edit or add more details to an already submitted ticket?
+    - Tell me about the process of updating an existing ticket.
+    - Explain how I can make changes to a support ticket I've submitted.
+    - Is there a way to provide additional information for an open ticket?
+    - Can I include more details in a ticket after it's been submitted?
+    - What's the procedure for updating an existing support request?
+    - How do I go about modifying information in a support ticket?
+    - Provide instructions on how to edit or update a submitted ticket.
+
+- intent: reset_password
+  examples: |
+    - How do I reset my password for the ticketing system?
+    - Password reset process
+    - What is the process for resetting my password in the ticketing system?
+    - How can I initiate a password reset for my account?
+    - Explain the steps to reset my password for the ticketing system.
+    - Can you guide me through the password reset process?
+    - How do I go about changing or recovering my password?
+    - Provide information on resetting the password for my account.
+    - Tell me the procedure for initiating a password reset.
+    - What steps should I follow to reset my login credentials?
+    - Is there a way to recover a forgotten password for the ticketing system?
+    - Explain the password recovery process for the ticketing platform.
+
+# - intent: attachments_allowed
+#   examples: |
+#     - Are attachments allowed when submitting a ticket?
+#     - Can I attach files to my ticket?
+
+- intent: escalate_priority
+  examples: |
+    - Can I escalate the priority of my ticket?
+    - Request priority escalation
+    - How can I escalate the priority of my support ticket?
+    - Is there a process to request priority escalation for a ticket?
+    - Can I increase the urgency or priority of my open ticket?
+    - Explain the steps to escalate the priority of my current ticket.
+    - What's the procedure for requesting a priority increase for a ticket?
+    - Is there a way to make my support ticket a higher priority?
+    - How do I request an escalation in the priority of my ticket?
+    - Tell me about the options for escalating the priority of my issue.
+    - Can I raise the priority level of my ticket for faster resolution?
+    - Provide information on how to request priority escalation for a support request.
+
+- intent: close_ticket
+  examples: |
+    - Can I close a ticket myself once the issue is resolved?
+    - Close resolved ticket
+
+- intent: subscribe_ticket_updates
+  examples: |
+    - How do I subscribe to receive updates on my ticket via email or SMS?
+    - Enable ticket update notifications
+
+- intent: ticket_submission_limit
+  examples: |
+    - Is there a limit to the number of tickets I can submit?
+    - Ticket submission limit
+
+- intent: include_info_in_ticket
+  examples: |
+    - What information should I include when describing my issue in a ticket?
+    - Details to include in a support ticket
+
+# - intent: provide_feedback
+#   examples: |
+#     - How can I provide feedback on the support I received for a particular ticket?
+#     - Submitting feedback for support
+
+# - intent: reopen_closed_ticket
+#   examples: |
+#     - What should I do if I mistakenly closed a ticket but the issue persists?
+#     - Reopen a closed ticket
+
+# - intent: transfer_ticket_department
+#   examples: |
+#     - Can I transfer a ticket to another department or team within the system?
+#     - Move ticket to another department
+
+# - intent: view_ticket_history
+#   examples: |
+#     - How do I view a history of all the tickets I've submitted?
+#     - Accessing ticket history
+
+
+

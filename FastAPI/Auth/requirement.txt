@@ -1,0 +1,13 @@
+python 3.9.17
+pip install --upgrade pip
+pip install fastapi
+pip install "uvicorn[standard]"
+pip install SQLAlchemy
+uvicorn main:app --reload
+
+
+For JWT Token encription
+pip install "python-jose[cryptography]
+pip install "passlib[bcrypt]"
+pip install python-multipart
+

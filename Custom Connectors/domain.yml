@@ -1,0 +1,62 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - FAQlist
+  - create_new_ticket
+  - instruction_check_ticket_status
+  - ticket_statuses
+  - pending_status_meaning
+  - supported_ticket_categories
+  - response_time_expectation
+  - update_existing_ticket
+  - reset_password
+  - escalate_priority
+  - close_ticket
+  - subscribe_ticket_updates
+  - ticket_submission_limit
+  - include_info_in_ticket
+
+actions:
+  - action_hello_world
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How Can i Help you"
+    buttons:
+    - title: Check ticket status
+      payload: /checking ticket status
+    - title: Customer support
+      payload: /human_handoff
+    - title: Frequently Asked Questions
+      payload: 'FAQlist'
+  
+  utter_FAQlist:
+  - text: "Here are the list of FAQ's"
+    buttons:
+    - title: How do I create a new ticket?
+      payload: /How do I create a new ticket?
+    - title: How can I check the status of my ticket?
+      payload: How can I check the status of my ticket?
+    - title: What are the possible ticket statuses?
+      payload: What are the possible ticket statuses?
+    - title: What does the "Pending" status mean for a ticket?
+      payload: What does the "Pending" status mean for a ticket?
+    - title: What are the supported ticket categories?
+      payload: What are the supported ticket categories?
+    - title: How long does it take to receive a response to my ticket?
+      payload: How long does it take to receive a response to my ticket?
+  
+  utter_goodbye:
+    - text: "Bye take care"
+  utter_iamabot:
+    - text: "I am just a bot"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
